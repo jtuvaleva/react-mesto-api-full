@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const handleError = require('./middlewares/handleError');
 const auth = require('./middlewares/auth');
@@ -31,6 +32,7 @@ const connectDB = async () => {
 
 connectDB();
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
