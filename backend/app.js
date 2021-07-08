@@ -32,20 +32,7 @@ const connectDB = async () => {
 
 connectDB();
 
-const allowedCors = [
-  'https://front.mestojuly.nomoredomains.monster',
-  'http://front.mestojuly.nomoredomains.monster',
-  'localhost:3000'
-];
-
-app.use(function(req, res, next) {
-  const { origin } = req.headers;  
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-
-  next();
-}); 
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
