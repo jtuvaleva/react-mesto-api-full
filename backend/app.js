@@ -47,6 +47,7 @@ app.use(function(req, res, next) {
   const { origin } = req.headers;
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin).status(200).send();
+    res.status(200).send();
   }
 
   const { method } = req;
@@ -56,8 +57,9 @@ app.use(function(req, res, next) {
   const requestHeaders = req.headers['access-control-request-headers']; 
 
   if (method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS).status(200).send();
-    res.header('Access-Control-Allow-Headers', requestHeaders).status(200).send();
+    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+    res.header('Access-Control-Allow-Headers', requestHeaders);
+    res.status(200).send();
   } 
 
   next();
