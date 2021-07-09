@@ -8,6 +8,8 @@ const BadRequestError = require('../errors/bad-request-err');
 const DuplicatedIdError = require('../errors/duplicated-id-err');
 const AuthError = require('../errors/auth-err');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
     .orFail(new NotFoundError('Запрашиваемый пользователь не найден'))
@@ -125,11 +127,13 @@ module.exports.login = (req, res, next) => {
 
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id },
-        'super-strong-secret',
-        { expiresIn: '7d' });
+      const token = jwt.sign(
+        { _id: user._id },
+        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+        { expiresIn: '7d' },
+      );
 
-      res.cookie('jwt', token, { httpOnly: true })
+      res.cookie('jwt', token)
         .send({ message: 'Вы успешно вошли в приложение!' })
         .end();
     })

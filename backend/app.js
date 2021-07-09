@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
-const cors = require('cors');
 
 const handleError = require('./middlewares/handleError');
 const auth = require('./middlewares/auth');
@@ -13,6 +12,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const NotFoundError = require('./errors/not-found-err');
 const { serverUrl, dbName, mongoParams } = require('./utils/constants');
+require('dotenv').config();
 
 const app = express();
 app.use(helmet());
@@ -31,8 +31,6 @@ const connectDB = async () => {
 };
 
 connectDB();
-
-app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
