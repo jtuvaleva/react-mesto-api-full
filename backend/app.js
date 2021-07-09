@@ -18,6 +18,7 @@ require('dotenv').config();
 const app = express();
 app.use(helmet());
 app.use(cookieParser());
+app.use(cors()); 
 
 const { PORT = 3000 } = process.env;
 
@@ -39,12 +40,10 @@ app.use(bodyParser.json());
 app.use(requestLogger);
 
 
-app.use(cors()); 
-
 app.post('/signin', validateSignIn, login);
 app.post('/signup', validateSignUp, createUser);
 
-app.use(auth);
+// app.use(auth);
 
 app.use('/users', require('./routes/users'));
 app.use('/cards', require('./routes/cards'));
