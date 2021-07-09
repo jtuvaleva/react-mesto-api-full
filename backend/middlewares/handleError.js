@@ -2,7 +2,6 @@ const { isCelebrateError } = require('celebrate');
 
 module.exports = (err, req, res, next) => {
   let { statusCode = 500, message } = err;
-  console.log(err);
 
   if (isCelebrateError(err)) {
     const errorBody = err.details.get('body');
