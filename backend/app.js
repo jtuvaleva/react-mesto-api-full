@@ -55,10 +55,10 @@ app.use(function(req, res, next) {
   const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
 
   const requestHeaders = req.headers['access-control-request-headers']; 
-  console.log(requestHeaders);
+
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    res.header('Access-Control-Allow-Headers', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     res.status(200).send();
   } 
 
