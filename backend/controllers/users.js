@@ -11,6 +11,7 @@ const AuthError = require('../errors/auth-err');
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.getCurrentUser = (req, res, next) => {
+  console.log(req.user);
   User.findById(req.user._id)
     .orFail(new NotFoundError('Запрашиваемый пользователь не найден'))
     .then((user) => {
