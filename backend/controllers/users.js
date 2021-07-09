@@ -134,7 +134,7 @@ module.exports.login = (req, res, next) => {
       );
 
       res.cookie('jwt', token)
-        .send({ message: 'Вы успешно вошли в приложение!' })
+        .send({ token })
         .end();
     })
     .catch((err) => {
