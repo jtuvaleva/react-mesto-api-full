@@ -4,4 +4,6 @@
 
 Ссылка на приложение - https://front.mestojuly.nomoredomains.monster/
 
+Публичный IP-адрес - 178.154.255.10
+
 Бэкенд приложения - https://mestojuly.nomoredomains.monster/
