@@ -46,7 +46,6 @@ function App () {
     }
   }, [loggedIn]);
 
-
   useEffect(() => {
     const close = (e) => {
       if(e.keyCode === escKey){
