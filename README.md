@@ -3,4 +3,5 @@
 
 
 Ссылка на приложение - https://front.mestojuly.nomoredomains.monster/
+
 Бэкенд приложения - https://mestojuly.nomoredomains.monster/
