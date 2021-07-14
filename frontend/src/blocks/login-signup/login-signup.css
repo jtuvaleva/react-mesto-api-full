@@ -1,0 +1,14 @@
+.login-signup{
+    width: 358px;
+    padding-top: 60px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+@media all and (max-width: 767px) {
+    .login-signup {
+      max-width: 260px;
+    }
+  }

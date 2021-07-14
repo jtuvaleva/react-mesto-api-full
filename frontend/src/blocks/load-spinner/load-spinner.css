@@ -1,0 +1,14 @@
+.load-spinner{
+    width: 30%;
+    margin: 0 auto;
+}
+
+
+@media all and (max-width: 767px) {
+    .load-spinner {
+      width: 150px;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+    }
+  }

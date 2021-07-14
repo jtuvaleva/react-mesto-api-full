@@ -1,0 +1,15 @@
+.popup__signup-text {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    padding-top: 32px;
+}
+
+@media all and (max-width: 767px) {
+    .popup__signup-text {
+      padding-top: 40px;
+    }
+  }

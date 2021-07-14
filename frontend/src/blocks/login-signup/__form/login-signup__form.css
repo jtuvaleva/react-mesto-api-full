@@ -1,0 +1,14 @@
+.login-signup__form {
+    margin: 0;
+    margin-top: 50px;
+    width: 100%;
+    max-width: 358px;
+  }
+  
+  
+  @media all and (max-width: 767px) {
+    .login-signup__form {
+      max-width: 260px;
+      margin-top: 75px;
+    }
+  }

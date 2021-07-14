@@ -1,0 +1,18 @@
+.header__auth_mobile {
+    visibility: hidden;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: 0;
+    width: min-content;
+    margin: 0 0 0 auto;
+    padding: 0;
+    transition: all ease-in 0.2s;
+}
+
+@media all and (max-width: 767px) {
+    .header__auth_mobile-opened  {
+        visibility: visible;
+        padding: 25px 10px 25px 0;
+    }
+}

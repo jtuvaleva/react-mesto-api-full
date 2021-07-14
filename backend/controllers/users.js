@@ -11,7 +11,6 @@ const AuthError = require('../errors/auth-err');
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.getCurrentUser = (req, res, next) => {
-  console.log(req.user);
   User.findById(req.user._id)
     .orFail(new NotFoundError('Запрашиваемый пользователь не найден'))
     .then((user) => {
@@ -130,13 +129,10 @@ module.exports.login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
-        { expiresIn: '7d' },
+        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret'
       );
 
-      res.cookie('jwt', token)
-        .send({ token })
-        .end();
+      res.status(200).send({ token });
     })
     .catch((err) => {
       if (err.statusCode === 401) {

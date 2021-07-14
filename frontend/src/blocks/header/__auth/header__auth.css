@@ -1,0 +1,6 @@
+.header__auth {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    visibility: visible;
+}
