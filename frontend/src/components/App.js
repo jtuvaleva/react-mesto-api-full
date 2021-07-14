@@ -45,12 +45,7 @@ function App () {
       .catch((error) => console.log(error));
     }
   }, [loggedIn]);
- 
-  // useEffect(() => {
-  //   if (loggedIn) {
-  //     history.push('/');
-  //   }
-  // }, [history, loggedIn]);
+
 
   useEffect(() => {
     const close = (e) => {
