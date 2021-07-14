@@ -11,10 +11,9 @@ const cardSchema = new mongoose.Schema({
   link: {
     type: String,
     required: true,
-    validate(value) {
-      if (!validator.isURL(value)) {
-        throw new Error('Неверный формат ссылки');
-      }
+    validate: {
+      validator: (value) => validator.isURL(value, { require_protocol: true }),
+      message: 'Введите корректную ссылку',
     },
   },
   owner: {

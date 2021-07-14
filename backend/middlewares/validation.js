@@ -15,11 +15,7 @@ module.exports.validateSignUp = celebrate({
         'string.min': 'Минимальная длина поля 2 символа',
         'string.max': 'Максимальная длина поля 30 символов',
       }),
-    avatar: Joi.string().allow('').uri().min(10)
-      .messages({
-        'string.min': 'Минимальная длина поля 10 символов',
-        'string.uri': 'Некорректная ссылка для аватара пользователя',
-      }),
+    avatar: Joi.string().allow(''),
     email: Joi.string().required().email()
       .messages({
         'string.email': 'Некорректный email',
@@ -73,11 +69,10 @@ module.exports.validateUpdateProfileEntry = celebrate({
 
 module.exports.validateUpdateAvatarEntry = celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().allow('').uri().min(10)
+    avatar: Joi.string().required()
       .messages({
-        'string.min': 'Минимальная длина поля 10 символов',
-        'string.uri': 'Некорректная ссылка для аватара пользователя',
         'any.invalid': 'Поле должно быть заполненным',
+        'any.required': 'Поле должно быть заполненным',
       }),
   }),
 });
@@ -91,7 +86,7 @@ module.exports.validateCardEntry = celebrate({
         'string.empty': 'Название должно быть заполненным',
         'any.required': 'Добавьте название для места',
       }),
-    link: Joi.string().required().uri()
+    link: Joi.string().required()
       .messages({
         'string.uri': 'Некорректная ссылка',
         'string.empty': 'Добавьте ссылку на изображение',
